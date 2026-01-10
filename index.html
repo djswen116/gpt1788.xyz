@@ -482,6 +482,16 @@
             .feature-card p {
                 font-size: 0.9rem;
             }
+
+            /* ✅ Added business reminder mobile tweaks */
+            .biz-warning-inner { grid-template-columns: 44px 1fr; gap: 10px; padding: 12px; }
+            .biz-warning-icon-wrap { width: 44px; height: 44px; border-radius: 12px; }
+            .biz-warning-title { font-size: 1.02rem; }
+            .biz-warning-desc { font-size: 0.92rem; margin-bottom: 10px; }
+            .biz-warning-actions { flex-direction: column; align-items: stretch; }
+            .biz-warning-tag { font-size: 0.9rem; padding: 10px 10px; }
+            .biz-warning-cta { width: 100%; }
+            .biz-warning-foot { font-size: 0.92rem; }
         }
         @media (min-width: 481px) and (max-width: 768px) {
             .container {
@@ -612,6 +622,171 @@
            font-size: 1rem;
            margin-top: 20px;
         }
+
+        /* =========================
+           ✅ Added: Gemini/Claude/Grok/Gpt Pro business reminder card
+           - Card shop link points to THIS page's "卡密自助购买" link
+           - No tag hyperlinks
+           - Does NOT change other existing styles
+        ========================== */
+        .biz-warning-banner {
+            max-width: 900px;
+            margin: -10px auto 16px;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.16);
+            border: 1px solid rgba(245, 158, 11, 0.35);
+            background: linear-gradient(135deg,
+                rgba(255, 247, 237, 0.95) 0%,
+                rgba(255, 251, 235, 0.92) 55%,
+                rgba(255, 255, 255, 0.90) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            text-align: left;
+            color: #7c2d12;
+        }
+
+        .biz-warning-inner {
+            display: grid;
+            grid-template-columns: 56px 1fr;
+            gap: 14px;
+            padding: 16px 16px 14px;
+            position: relative;
+        }
+
+        .biz-warning-inner::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+              radial-gradient(circle at 0% 0%, rgba(245, 158, 11, 0.18), transparent 55%),
+              radial-gradient(circle at 100% 0%, rgba(61, 139, 107, 0.12), transparent 55%);
+            pointer-events: none;
+        }
+
+        .biz-warning-icon-wrap {
+            position: relative;
+            z-index: 1;
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.18), rgba(245, 158, 11, 0.08));
+            border: 1px solid rgba(245, 158, 11, 0.25);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.10);
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .biz-warning-icon { font-size: 1.35rem; line-height: 1; }
+
+        .biz-warning-content { position: relative; z-index: 1; }
+
+        .biz-warning-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+        }
+
+        .biz-warning-title {
+            font-size: 1.12rem;
+            font-weight: 900;
+            letter-spacing: -0.2px;
+            color: #7c2d12;
+        }
+
+        .biz-warning-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            font-weight: 900;
+            color: #7c2d12;
+            background: rgba(245, 158, 11, 0.14);
+            border: 1px solid rgba(245, 158, 11, 0.28);
+            white-space: nowrap;
+        }
+
+        .biz-warning-desc {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #9a3412;
+            margin: 0 0 12px;
+            line-height: 1.6;
+        }
+
+        .biz-warning-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        .biz-warning-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+
+        .biz-warning-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            font-weight: 900;
+            font-size: 0.95rem;
+            color: #7c2d12;
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid rgba(245, 158, 11, 0.22);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+            white-space: nowrap;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .biz-warning-tag::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: rgba(245, 158, 11, 0.65);
+            box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.12);
+        }
+
+        .biz-warning-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px 14px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 0.95rem;
+            color: #ffffff;
+            background: linear-gradient(135deg, #ffb700 0%, #ff8c00 100%);
+            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            white-space: nowrap;
+        }
+
+        .biz-warning-foot {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: rgba(124, 45, 18, 0.9);
+            line-height: 1.55;
+        }
+        .biz-warning-foot strong { font-weight: 900; }
+
+        @media (max-width: 768px) {
+            .biz-warning-actions { flex-direction: column; align-items: stretch; }
+            .biz-warning-cta { width: 100%; }
+        }
     </style>
 </head>
 <body>
@@ -620,6 +795,40 @@
             <h1>🚀 Chat.Gpt Plus 代充</h1>
             <div class="subtitle">专业 • 安全 • 保障</div>
         </header>
+
+        <!-- ✅ Added business reminder card (Gemini / Claude / Grok / Gpt Pro) -->
+        <div class="biz-warning-banner" role="note" aria-label="业务提醒">
+            <div class="biz-warning-inner">
+                <div class="biz-warning-icon-wrap" aria-hidden="true"><span class="biz-warning-icon">🧩</span></div>
+                <div class="biz-warning-content">
+                    <div class="biz-warning-head">
+                        <div class="biz-warning-title">业务提醒</div>
+                        <div class="biz-warning-badge">多平台</div>
+                    </div>
+
+                    <div class="biz-warning-desc">自助卡网除 <strong>Chat.Gpt Plus</strong> 外，另提供以下相关业务：</div>
+
+                    <div class="biz-warning-actions">
+                        <div class="biz-warning-tags" aria-label="相关业务">
+                            <span class="biz-warning-tag">Gpt Pro</span>
+                            <span class="biz-warning-tag">Grok</span>
+                            <span class="biz-warning-tag">Claude</span>
+                            <span class="biz-warning-tag">Gemini</span>
+                        </div>
+                        <!-- ✅ Card shop points to your "卡密自助购买" link in this page -->
+                        <a class="biz-warning-cta" href="https://qf.dtyuedan.cn/shop/gpt1788" target="_blank" rel="noopener noreferrer">
+                            点击进入卡网 →
+                        </a>
+                    </div>
+
+                    <div class="biz-warning-foot">
+                        其他业务请进卡网先查看对应商品说明；如有疑问，联系客服。。<br>
+                        需要了解Gpt plus的更多详情下拉网页就可。
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="main-content">
             <div class="product-section">
                 <div class="product-badge">✨ 靠谱给力</div>
@@ -675,6 +884,7 @@
                 </div>
             </div>
         </div>
+
         <div class="features">
             <div class="feature-card">
                 <span class="feature-icon">⭐</span>
